@@ -2,6 +2,12 @@
 
 This repository contains two Python scripts that can be used to interact with AI language models through the terminal and have text-based conversations. These scripts require Python 3 and the llm package (requires an OpenAI API key), which is used to interface with the AI model. Credit to simonw for creating llm (https://github.com/simonw/llm). 
 
+### To-Do
+
+Implement dependancy checking on looper. Implement API Key checking on both.
+
+Implement ability to move the cursor around within the prompts without it doing the weird characters. 
+
 ## `loopGPT.py`
 
 This script is designed for two AI language models to have a conversation with each other. The script generates a conversation file in the `conversations` directory, and saves the conversation to the file as it progresses.
