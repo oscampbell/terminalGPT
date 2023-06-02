@@ -19,6 +19,8 @@ This script is designed for two AI language models to have a conversation with e
 
 This script requires Python 3 and the llm package, which can be installed using pip. Also an OpenAI API key must be present in either the OPENAI_API_KEY environment variable, or saved in a plain text file called ~/.openai-api-key.txt in your home directory.
 
+![Screenshot 2023-06-02 105540](https://github.com/oscampbell/terminalGPT/assets/113595058/6efad3a4-7ed0-44c3-a651-f9b90d4326ed)
+
 ## `terminalGPT.py`
 
 This script allows the user to have a text-based conversation with an AI language model. I made it after using llm and finding that it did not allow you to ask follow up questions, as the AI did not have the history of the conversation. The script keeps track of the conversation, and saves it to a file in the `conversations` directory, and feeds that to the ai as well as the next question each time you make a request. The user can choose an existing conversation file to continue the conversation, or start a new file. 
@@ -34,6 +36,8 @@ This script allows the user to have a text-based conversation with an AI languag
 ### Dependencies
 
 As above.
+
+![Screenshot 2023-06-02 110021](https://github.com/oscampbell/terminalGPT/assets/113595058/db73d0a7-3847-46c7-9f25-e8edbe6d22bd)
 
 ## Authors
 
