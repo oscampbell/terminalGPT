@@ -202,7 +202,7 @@ name_generation_command = 'cat {} | llm --system "describe the subject of conver
 generated_name = subprocess.run(name_generation_command, shell=True, capture_output=True, text=True).stdout.strip()
 
 # obtain the filename which includes only 3 capitalized words.
-new_file_name = generated_name.replace(".", "").replace(",", "").replace("-", "")
+new_file_name = generated_name.replace(".", "-").replace(",", "-").replace("-", "-")
 new_file_name = " ".join(word.capitalize() for word in new_file_name.split()[:3])
 new_file_name = os.path.join(conversations_dir, new_file_name)
 
