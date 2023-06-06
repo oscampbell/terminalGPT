@@ -4,6 +4,8 @@ This repository contains two Python scripts that can be used to interact with AI
 
 ### To-Do
 
+Modify terminalGPT menu to give options for new convo, show old convos or use built in hardcoded prompts for games etc.
+
 Implement dependancy checking on looper. Implement API Key checking on both.
 
 Implement ability to move the cursor around within the prompts without it doing the weird characters. 
