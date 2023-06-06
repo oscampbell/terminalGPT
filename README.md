@@ -27,6 +27,21 @@ This script requires Python 3 and the llm package, which can be installed using 
 
 ![Screenshot 2023-06-02 105540](https://github.com/oscampbell/terminalGPT/assets/113595058/6efad3a4-7ed0-44c3-a651-f9b90d4326ed)
 
+## `loopGPTcode.py`
+
+This script uses loopGPT but with the built in instruction specifically to look for possible improvements in the outputted code and ask for improvements, while always outputting the full modified code. With this you can watch an AI write a simple program and then iterate on it indefinitely.
+
+### How to use
+
+1. Clone the repository.
+2. In the terminal, navigate to the directory where the repository was cloned.
+3. Type `python3 loopGPTcode.py` and press Enter.
+4. Follow the prompts to specify the coding goal.
+
+### Dependencies
+
+This script requires Python 3 and the llm package, which can be installed using pip. Also an OpenAI API key must be present in either the OPENAI_API_KEY environment variable, or saved in a plain text file called ~/.openai-api-key.txt in your home directory.
+
 ## `terminalGPT.py`
 
 This script allows the user to have a text-based conversation with an AI language model. I made it after using llm and finding that it did not allow you to ask follow up questions, as the AI did not have the history of the conversation. The script keeps track of the conversation, and saves it to a file in the `conversations` directory, and feeds that to the ai as well as the next question each time you make a request. The user can choose an existing conversation file to continue the conversation, or start a new file. 
