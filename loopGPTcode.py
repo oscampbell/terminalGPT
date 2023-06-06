@@ -22,19 +22,23 @@ if not os.path.isfile(conversation_file):
     with open(conversation_file, "w") as f:
         f.write("Conversation started!\n")
 
-# Limit the size of conversation file to 20 lines
+# Limit the size of conversation file to 100 lines preserving first 2 lines
 def limit_file_lines(file):
     with open(file, "r+") as f:
         lines = f.readlines()
-        if len(lines) > 20:
+        if len(lines) > 100:
             f.seek(0)
             f.truncate()
-            f.writelines(lines[10:])
+            f.writelines(lines[:2] + lines[22:])
+
+# Explain what this does
+
+print("This version of loopGPT will write code for you, and then continue to iterate and improve on the code as the 2nd AI spots improvements.")
 
 # Initialize the first question and personality
-question = input("Subject: ") + "Do not output 'As an AI language model' ever."
-personality = input("Personality/Goal: ")
-aiChat = "Your personality/goal is " + personality + "Look at this conversation and craft a reply to the most recent message. Give this reply as your output. Try to avoid saying things that will lead to looping conversation. Dont repeat anything that has already been said in the conversation. Come up with a new unique question if the conversation is wrapping up. Try to keep question short and snappy."
+question = "Write me the code for " + input("Coding objective: ")
+no_repeat = "Do not mention that you are a language model."
+aiChat = "Look at the most recent code in this conversation. Pick something that can be improved upon and craft a question in which you ask for that improvement. Give this crafted question as your output. The outputted question must include 'Give the full modified code as output'"
 
 # Set color codes for terminal outputs
 red = '\033[91m'
@@ -72,7 +76,7 @@ while True:
     if question == "exit" or interrupted:
         break
     
-    # Write the question to the conversation file and limit file to 30 lines
+    # Write the question to the conversation file and limit file to 50 lines preserving first 2 lines
     with open(conversation_file, "a") as f:
         f.write(question + "\n")
         limit_file_lines(conversation_file)
@@ -83,14 +87,14 @@ while True:
 
     # Create the command to send to the AI language model
     if os.path.isfile(conversation_file):
-        command = 'cat {} | llm --system "{} Do not include the phrase: As an AI language model."'.format(conversation_file, question)
+        command = 'cat {} | llm --system "{}{}"'.format(conversation_file, question, no_repeat)
     else:
         command = 'llm --system "{}"'.format(question)
 
     # Use subprocess.run to run the command in the shell and get the output
     answer = subprocess.run(command, shell=True, capture_output=True, text=True).stdout.strip()
 
-    # Print the answer and write it to the conversation file, then limit file to 30 lines
+    # Print the answer and write it to the conversation file, then limit file to 50 lines preserving first 2 lines
     print(white + "chatGPT: " + blue + answer + "\n" )
 
     with open(conversation_file, "a") as f:
@@ -112,7 +116,7 @@ while True:
     # Use subprocess.run to run the command in the shell and get the output
     answer = subprocess.run(command, shell=True, capture_output=True, text=True).stdout.strip()
 
-    # Print the answer and write it to the conversation file, then limit file to 30 lines
+    # Print the answer and write it to the conversation file, then limit file to 50 lines preserving first 2 lines
     print(white + "terminalGPT: " + cyan + answer + "\n" )
 
     # Add 1 newline characters for spacing between outputs
