@@ -105,7 +105,7 @@ while True:
     print("\n")
 
     # Add a 10 second break before the next command is run
-#    time.sleep(10)
+    time.sleep(10)
 
     # Create the command to get the ai response
     if os.path.isfile(conversation_file):
@@ -123,7 +123,7 @@ while True:
     print("\n")
 
     # Add a 10 second break before the next command is run
-#    time.sleep(10)
+    time.sleep(10)
 
     # Set the next question
     question = answer

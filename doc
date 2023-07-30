@@ -1,0 +1,87 @@
+# terminalGPT Documentation
+
+## Introduction
+
+terminalGPT is a Python program that provides a terminal interface for OpenAI's GPT-3 chat tool. It allows users to chat with the GPT-3 AI directly from the terminal.
+
+The program stores each chat session in a separate file, and automatically generates a meaningful file name using the content of the chat session. This makes it easier to keep track of previous chat sessions and to find them later.
+
+## Installation
+
+**Note**: The program was only tested on Ubuntu 20.04.
+
+### 1. Clone the repository and navigate to the directory
+
+```bash
+$ git clone https://github.com/AbdullahM0hamed/terminalGPT.git
+$ cd terminalGPT
+```
+
+### 2. Install dependencies
+
+terminalGPT requires several dependencies that must be installed before running the program.
+
+- Python 3
+- Pip
+- [LLM](https://github.com/simonw/llm.git) (a Python package used to interact with GPT-3)
+
+You can check if you have Python 3 and Pip installed by running the following commands:
+
+```bash
+$ python3 --version
+$ pip --help
+```
+
+If you do not have one or both of these programs installed, you will have to install them.
+
+To install LLM, run the following command:
+
+```bash
+$ pip install llm
+```
+
+### 3. Configure API key
+
+Before running the program, you must obtain an API key for OpenAI's GPT-3 service. You can get a key by following the instructions on the [official OpenAI GPT-3 API page](https://beta.openai.com/docs/api-reference/introduction).
+
+Once you have the API key, paste it in the `llm.key` file that is located in the `terminalGPT` directory.
+
+### 4. Run the program
+
+Finally, to run the program, navigate to the `terminalGPT` directory and run the following command:
+
+```bash
+$ python3 terminalGPT.py
+```
+
+## Usage
+
+### Starting a new chat
+
+After running the program, you will see a menu that shows the list of previous chat sessions. If this is your first time running the program, you will see an empty list.
+
+To start a new chat, type `0` and press Enter. This will start a new chat session and automatically generate a meaningful name for the chat session file. The chat sessions are saved in the `terminalGPT/chats` directory.
+
+### Resuming a previous chat
+
+If you want to resume a previous chat session, select the index number of the chat session and press Enter.
+
+**Note**: You can only resume the chat session that was started in the current session of terminalGPT.
+
+### Chatting with GPT-3
+
+Once you have started or resumed the chat session, you can start chatting with GPT-3 AI. Type your question and press Enter. The program will then send the question to GPT-3 and display the AI's response.
+
+At any time during the chat session, you can type `exit` and press Enter to end the chat session.
+
+### Renaming the chat session file
+
+After ending the chat session, the program will automatically generate a meaningful file name based on the content of the chat session. If you want to change the file name, you can do so manually by renaming the file in the `terminalGPT/chats` directory.
+
+## Contributing
+
+Pull requests and bug reports are welcome! If you have any suggestions or issues with the program, feel free to open an issue on the GitHub repository.
+
+## License
+
+This program is licensed under the [MIT License](https://opensource.org/licenses/MIT).
